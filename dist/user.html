@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/dist/styles/output.css" rel="stylesheet" />
+  <!-- <link href="/dist/assets/css/extra-css.css" rel="stylesheet" /> -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="dark:bg-neutral-900">
+  <!-- ========== HEADER ========== -->
+  <header
+    class="sticky top-0 inset-x-0 flex flex-wrap sm:justify-start sm:flex-nowrap z-[48] w-full bg-white border-b text-sm py-1.5 sm:py-2 lg:ps-64 dark:bg-neutral-900 dark:border-neutral-700 dark:hs-overlay-backdrop-open:bg-neutral-900/90">
+    <nav class="flex items-center w-full px-4 mx-auto basis-full sm:px-6 md:px-8" aria-label="Global">
+      <!-- Navigation Toggle -->
+      <button type="button"
+        class="inline-flex items-center justify-center p-2 text-gray-800 bg-white border border-gray-200 rounded-full shadow-sm lg:hidden gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-white dark:text-white dark:hover:bg-white/10"
+        data-hs-overlay="#application-sidebar" aria-controls="application-sidebar" aria-label="Toggle navigation">
+        <!-- <span class="sr-only">Toggle Navigation</span> -->
+        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="2" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" x2="21" y1="6" y2="6" />
+          <line x1="3" x2="21" y1="12" y2="12" />
+          <line x1="3" x2="21" y1="18" y2="18" />
+        </svg>
+      </button>
+      <!-- End Navigation Toggle -->
+      <div class="mx-5 lg:me-0 lg:hidden">
+        <a class="flex-none text-xl font-semibold dark:text-white" href="#" aria-label="Brand">Brand</a>
+      </div>
+
+      <div class="flex items-center justify-end w-full ms-auto sm:justify-between sm:gap-x-3 sm:order-3">
+        <div class="sm:hidden">
+          <button type="button"
+            class="w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-red-600 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-red-600 hover:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="hidden w-2/5 sm:block">
+          <label for="icon" class="sr-only">Search</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 z-20 flex items-center pointer-events-none start-0 ps-4">
+              <svg class="flex-shrink-0 text-gray-400 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+            </div>
+            <input type="text" id="icon" name="icon"
+              class="block w-full px-4 py-2 text-sm border border-gray-200 rounded-lg ps-11 bg:gray-100 focus:border-pink-500 focus:ring-pink-500 dark:border-transparent dark:text-neutral-400 dark:placeholder:text-neutral-400 dark:bg-neutral-800"
+              placeholder="Search projects, files or people" />
+          </div>
+        </div>
+
+        <div class="flex flex-row items-center justify-end gap-2">
+          <button type="button"
+            class="w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-red-600 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-red-600 hover:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+            </svg>
+          </button>
+          <button type="button"
+            class="w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-red-600 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-red-600 hover:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            data-hs-offcanvas="#hs-offcanvas-right">
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </button>
+          <div class="hs-dropdown">
+            <button type="button"
+              class=" hs-dropdown-toggle hs-dark-mode group w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-red-600 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-red-600 hover:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+              <svg class="block hs-dark-mode-active:hidden size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+              </svg>
+              <svg class="hidden hs-dark-mode-active:block size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+              </svg>
+            </button>
+
+            <div id="selectThemeDropdown"
+              class="hs-dropdown-menu hs-dropdown-open:opacity-100 mt-2 hidden z-10 transition-[margin,opacity] opacity-0 duration-300 mb-2 origin-bottom-left bg-white rounded-lg p-2 shadow-[0_10px_40px_10px_rgba(0,0,0,0.08)] dark:bg-neutral-900 dark:shadow-[0_10px_40px_10px_rgba(0,0,0,0.2)]">
+              <button type="button"
+                class="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-red-600 dark:text-neutral-300 dark:hover:bg-red-600 hover:text-white dark:hover:text-gray-300"
+                data-hs-theme-click-value="default">
+                Default (Light)
+              </button>
+              <button type="button"
+                class="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-red-600 dark:text-neutral-300 dark:hover:bg-red-600 hover:text-white dark:hover:text-gray-300"
+                data-hs-theme-click-value="dark">
+                Dark
+              </button>
+              <button type="button"
+                class="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-red-600 dark:text-neutral-300 dark:hover:bg-red-600 hover:text-white dark:hover:text-gray-300"
+                data-hs-theme-click-value="auto">
+                Auto (System)
+              </button>
+            </div>
+          </div>
+
+          <div class="hs-dropdown relative inline-flex [--placement:bottom-right]">
+            <button id="hs-dropdown-with-header" type="button"
+              class="w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-red-600 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-red-600 hover:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+              <img class="inline-block size-[38px] rounded-full ring-2 ring-white dark:ring-gray-800"
+                src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
+                alt="Image Description" />
+            </button>
+
+            <div
+              class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white  rounded-lg p-2  shadow-[0_10px_40px_10px_rgba(0,0,0,0.08)] dark:bg-neutral-900 dark:shadow-[0_10px_40px_10px_rgba(0,0,0,0.2)]"
+              aria-labelledby="hs-dropdown-with-header">
+              <div class="px-5 py-3 -m-2 rounded-t-lg bg-neutral-100 dark:bg-neutral-800">
+                <p class="text-sm text-gray-500 dark:text-neutral-300">Signed in as</p>
+                <p class="text-sm font-medium text-gray-800 dark:text-gray-300">james@site.com</p>
+              </div>
+
+              <div class="py-2 mt-2 first:pt-0 last:pb-0">
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-red-600 focus:ring-2 focus:ring-blue-500 dark:text-neutral-300 dark:hover:bg-red-600 hover:text-white dark:hover:text-gray-300"
+                  href="#">
+                  <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+                    <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+                  </svg>
+                  Newsletter
+                </a>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-red-600 focus:ring-2 focus:ring-blue-500 dark:text-neutral-300 dark:hover:bg-red-600 hover:text-white dark:hover:text-gray-300"
+                  href="#">
+                  <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                    <path d="M3 6h18" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                  </svg>
+                  Purchases
+                </a>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-red-600 focus:ring-2 focus:ring-blue-500 dark:text-neutral-300 dark:hover:bg-red-600 hover:text-white dark:hover:text-gray-300"
+                  href="#">
+                  <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+                    <path d="M12 12v9" />
+                    <path d="m8 17 4 4 4-4" />
+                  </svg>
+                  Downloads
+                </a>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-red-600 focus:ring-2 focus:ring-blue-500 dark:text-neutral-300 dark:hover:bg-red-600 hover:text-white dark:hover:text-gray-300"
+                  href="#">
+                  <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                  Team Account
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- ========== END HEADER ========== -->
+
+  <!-- ========== MAIN CONTENT ========== -->
+
+
+  <!-- Sidebar -->
+  <div id="application-sidebar"
+    class="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 start-0 bottom-0 z-[60] w-64 bg-white border-e border-gray-200 pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 dark:bg-neutral-800 dark:border-neutral-700 dark:hs-overlay-backdrop-open:bg-neutral-900/90">
+    <div class="px-6">
+      <a class="flex-none text-xl font-semibold dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+        href="#" aria-label="Brand">Brand</a>
+    </div>
+
+    <nav class="flex flex-col flex-wrap w-full p-6 hs-accordion-group" data-hs-accordion-always-open>
+      <ul class="space-y-1.5">
+        <!-- List of Sidebar items -->
+        <li>
+          <a class="flex items-center gap-x-3.5 py-2 px-2.5 bg-red-600 text-sm text-white rounded-lg hover:bg-red-600 dark:bg-red-600 dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            href="#">
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+            Dashboard
+          </a>
+        </li>
+
+        <li class="hs-accordion" id="staff-accordion">
+          <button type="button"
+            class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-white hs-accordion-active:font-semibold hs-accordion-active:bg-red-600  text-sm text-black rounded-lg hover:bg-red-600  dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:hs-accordion-active:text-white dark:focus:outline-none">
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            Staff
+
+            <svg class="hidden hs-accordion-active:block ms-auto size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="m18 15-6-6-6 6" />
+            </svg>
+
+            <svg class="block hs-accordion-active:hidden ms-auto size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+
+          <div id="staff-accordion-child"
+            class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden">
+            <ul class="pt-2 ml-6 ps-2">
+              <li>
+                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none "
+                  href="user.html">
+                  User
+                </a>
+              </li>
+              <li>
+                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none "
+                  href="employee-profile.html">
+                  Employee Profile
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            href="employees.html">
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="10" r="3"></circle>
+              <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"></path>
+            </svg>
+            Employee
+          </a>
+        </li>
+
+        <li class="hs-accordion" id="payroll-accordion">
+          <button type="button"
+            class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-white hs-accordion-active:font-semibold hs-accordion-active:bg-red-600  text-sm text-black rounded-lg hover:bg-red-600  dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:hs-accordion-active:text-white dark:focus:outline-none ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pass"
+              viewBox="0 0 16 16">
+              <path d="M5.5 5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z" />
+              <path
+                d="M8 2a2 2 0 0 0 2-2h2.5A1.5 1.5 0 0 1 14 1.5v13a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-13A1.5 1.5 0 0 1 3.5 0H6a2 2 0 0 0 2 2m0 1a3 3 0 0 1-2.83-2H3.5a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-1.67A3 3 0 0 1 8 3" />
+            </svg>
+            Payroll
+
+            <svg class="hidden hs-accordion-active:block ms-auto size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="m18 15-6-6-6 6" />
+            </svg>
+
+            <svg class="block hs-accordion-active:hidden ms-auto size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+
+          <div id="payroll-accordion-child"
+            class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden">
+            <ul class="pt-2 ml-6 ps-2">
+              <li>
+                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none "
+                  href="set-salary.html">
+                  Set Salary
+                </a>
+              </li>
+              <li>
+                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none "
+                  href="payslip.html">
+                  Payslip
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </li>
+
+        <li class="hs-accordion" id="timesheet-accordion">
+          <button type="button"
+            class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-white hs-accordion-active:font-semibold hs-accordion-active:bg-red-600  text-sm text-black rounded-lg hover:bg-red-600  dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:hs-accordion-active:text-white dark:focus:outline-none ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alarm"
+              viewBox="0 0 16 16">
+              <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9z" />
+              <path
+                d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1zm1.038 3.018a6 6 0 0 1 .924 0 6 6 0 1 1-.924 0M0 3.5c0 .753.333 1.429.86 1.887A8.04 8.04 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5M13.5 1c-.753 0-1.429.333-1.887.86a8.04 8.04 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1" />
+            </svg>
+            Timesheet
+
+            <svg class="hidden hs-accordion-active:block ms-auto size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="m18 15-6-6-6 6" />
+            </svg>
+
+            <svg class="block hs-accordion-active:hidden ms-auto size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+
+          <div id="timesheet-accordion-child"
+            class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden">
+            <ul class="pt-2 ml-6 ps-2">
+              <li>
+                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none "
+                  href="timesheet.html">
+                  Timesheet
+                </a>
+              </li>
+              <li>
+                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none "
+                  href="manange-leave.html">
+                  Manage Leave
+                </a>
+              </li>
+              <li>
+                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none "
+                  href="attendence.html">
+                  Attendence
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            href="inventory.html">
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="10" r="3"></circle>
+              <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"></path>
+            </svg>
+            Inventory
+          </a>
+        </li>
+
+        <li class="hs-accordion" id="account-accordion">
+          <button type="button"
+            class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-white hs-accordion-active:font-semibold hs-accordion-active:bg-red-600  text-sm text-black rounded-lg hover:bg-red-600  dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:hs-accordion-active:text-white dark:focus:outline-none ">
+            <svg class="flex-shrink-0 mt-0.5 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="18" cy="15" r="3" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M10 15H6a4 4 0 0 0-4 4v2" />
+              <path d="m21.7 16.4-.9-.3" />
+              <path d="m15.2 13.9-.9-.3" />
+              <path d="m16.6 18.7.3-.9" />
+              <path d="m19.1 12.2.3-.9" />
+              <path d="m19.6 18.7-.4-1" />
+              <path d="m16.8 12.3-.4-1" />
+              <path d="m14.3 16.6 1-.4" />
+              <path d="m20.7 13.8 1-.4" />
+            </svg>
+            Account
+
+            <svg class="hidden hs-accordion-active:block ms-auto size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="m18 15-6-6-6 6" />
+            </svg>
+
+            <svg class="block hs-accordion-active:hidden ms-auto size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+
+          <div id="account-accordion-child"
+            class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden">
+            <ul class="pt-2 ml-6 ps-2">
+              <li>
+                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none "
+                  href="#">
+                  Link 1
+                </a>
+              </li>
+              <li>
+                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none "
+                  href="#">
+                  Link 1
+                </a>
+              </li>
+              <li>
+                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none "
+                  href="#">
+                  Link 1
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="hs-accordion" id="projects-accordion">
+          <button type="button"
+            class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-white hs-accordion-active:font-semibold hs-accordion-active:bg-red-600  text-sm text-black rounded-lg hover:bg-red-600  dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:hs-accordion-active:text-white dark:focus:outline-none">
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            </svg>
+            Projects
+
+            <svg class="hidden hs-accordion-active:block ms-auto size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="m18 15-6-6-6 6" />
+            </svg>
+
+            <svg class="block hs-accordion-active:hidden ms-auto size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+
+          <div id="projects-accordion-child"
+            class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden">
+            <ul class="pt-2 ml-6 ps-2">
+              <li>
+                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none "
+                  href="#">
+                  Link 1
+                </a>
+              </li>
+              <li>
+                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none "
+                  href="#">
+                  Link 1
+                </a>
+              </li>
+              <li>
+                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none "
+                  href="#">
+                  Link 1
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            href="#">
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+              <line x1="16" x2="16" y1="2" y2="6" />
+              <line x1="8" x2="8" y1="2" y2="6" />
+              <line x1="3" x2="21" y1="10" y2="10" />
+              <path d="M8 14h.01" />
+              <path d="M12 14h.01" />
+              <path d="M16 14h.01" />
+              <path d="M8 18h.01" />
+              <path d="M12 18h.01" />
+              <path d="M16 18h.01" />
+            </svg>
+            Calendar
+          </a>
+        </li>
+        <li>
+          <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-black rounded-lg hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:text-white dark:hover:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            href="#">
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
+            Documentation
+          </a>
+        </li>
+
+        <!-- List of Sidebar items -->
+      </ul>
+    </nav>
+  </div>
+  <!-- End Sidebar -->
+
+  <!-- Content -->
+  <div class="w-full px-4 pt-10 sm:px-6 md:px-8 lg:ps-72">
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+      <div>
+        <h3 class="font-semibold dark:text-neutral-200 text-[16px]">Manage Users</h3>
+
+        <ol class="flex items-center mt-2 whitespace-nowrap">
+          <li class="inline-flex items-center">
+            <a class="flex items-center text-sm text-gray-500 hover:text-red-600 focus:outline-none focus:text-blue-600 dark:focus:text-blue-500"
+              href="#">
+              <svg class="flex-shrink-0 me-3 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+              Dashboard
+            </a>
+            <svg class="flex-shrink-0 mx-2 overflow-visible text-gray-400 size-4 dark:text-neutral-600"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6"></path>
+            </svg>
+          </li>
+
+          <li class="inline-flex items-center text-sm font-semibold text-red-600 truncate dark:text-red-600"
+            aria-current="page">
+            Users
+          </li>
+        </ol>
+      </div>
+
+      
+      <div>
+        <button type="button" data-hs-overlay="#hs-pro-datm"
+          class="inline-flex items-center px-4 py-3 text-sm font-semibold text-gray-500 border rounded-lg border-neutral-300 gap-x-2 hover:border-red-600 hover:text-red-600 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:text-gray-400 dark:hover:text-red-500 dark:hover:border-red-600">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-plus-circle-dotted" viewBox="0 0 16 16">
+            <path
+              d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
+          </svg>
+          New User
+        </button>
+      </div>
+    </div>
+    <!-- Header -->
+
+    <!-- Content Cards-->
+
+    <div class="grid gap-3 mt-5 sm:grid-cols-1 md:grid-cols-3 xl:grid-cols-3 sm:gap-6">
+
+      <div class="bg-white border border-gray-200 rounded-lg dark:bg-neutral-800 -800 dark:border-gray-700">
+        <div class="flex justify-between px-4 pt-4">
+
+          <div class="relative inline-flex hs-dropdown">
+            <button id="hs-dropdown-custom-icon-trigger" type="button"
+              class="flex items-center justify-center text-sm font-semibold text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm hs-dropdown-toggle size-9 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-gray-700 dark:text-white dark:hover:bg-neutral-800">
+              <svg class="flex-none text-gray-600 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="1" />
+                <circle cx="12" cy="5" r="1" />
+                <circle cx="12" cy="19" r="1" />
+              </svg>
+            </button>
+
+            <div
+              class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-2 mt-2 dark:bg-neutral-800 dark:border dark:border-gray-700"
+              aria-labelledby="hs-dropdown-custom-icon-trigger">
+              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-red-600 hover:text-white dark:text-gray-400 dark:hover:bg-red-700 dark:hover:text-white"
+                href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-pencil-square" viewBox="0 0 16 16">
+                  <path
+                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                  <path fill-rule="evenodd"
+                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                </svg>
+                Edit
+              </a>
+              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-red-600 hover:text-white dark:text-gray-400 dark:hover:bg-red-700 dark:hover:text-white"
+                href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-key-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2M2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                </svg>
+                Reset Password
+              </a>
+
+              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-red-600 hover:text-white dark:text-gray-400 dark:hover:bg-red-700 dark:hover:text-white"
+                href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-person-x" viewBox="0 0 16 16">
+                  <path
+                    d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z" />
+                  <path
+                    d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708" />
+                </svg>
+                Delete
+              </a>
+            </div>
+          </div>
+          <button
+            class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
+            type="button">
+            <span
+              class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-lg text-xs font-medium bg-red-100 text-red-800 dark:bg-red-800/30 dark:text-red-500">HR</span>
+
+
+          </button>
+        </div>
+        <div class="flex flex-col items-center pb-10">
+          <img class="w-24 h-24 mb-3 rounded-full shadow-lg"
+            src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
+            alt="Bonnie image" />
+          <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Bonnie Green</h5>
+          <span class="text-sm text-gray-500 dark:text-gray-400">Visual Designer</span>
+          <div class="flex mt-4 md:mt-6">
+            <a href="#"
+              class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Add
+              friend</a>
+            <a href="#"
+              class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg ms-2 focus:outline-none hover:bg-gray-100 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-red-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Message</a>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="flex items-center justify-center bg-white border border-gray-200 rounded-lg dark:bg-neutral-800 -800 dark:border-gray-700">
+        
+        <div class="flex flex-col items-center pb-5">
+
+          <a href="" class="text-gray-700 hover:text-red-600 dark:hover:text-red-600">
+            <div class="flex items-center justify-center my-2 dark:text-white">
+              <svg class="text-center" xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-x"
+                viewBox="0 0 16 16">
+                <path
+                  d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z" />
+                <path
+                  d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708" />
+              </svg>
+            </div>
+            <div class="text-center hover:text-red-600 dark:hover:text-red-600">
+              
+              <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white hover:text-red-600 dark:hover:text-red-600">New User</h5>
+              <span class="text-sm text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-600">Click here to add new user</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Content Cards-->
+
+
+
+  </div>
+  <!-- End Content -->
+  <!-- ========== END MAIN CONTENT ========== -->
+
+
+  
+
+  <!-- Modal Content -->
+
+  <div id="hs-pro-datm" class="fixed hidden hs-overlay op6zh vhz8h wcgoj bsesq nn7jr uf9bc uvi39 dark:hs-overlay-backdrop-open:bg-neutral-900/90" >
+    <div class="vnt3n tjwl4 t5aom kqdld opacity-0 mbg5t j26y9 oxw3y dj320 mjuqe pny23 ojtot h-[calc(100%-3.5rem)] min-h-[calc(100%-3.5rem)]">
+      <div class="w-full im030 flex u385y nf52k jtemb n9c2j shadow-[0_10px_40px_10px_rgba(0,0,0,0.08)] dark:bg-neutral-800 dark:shadow-[0_10px_40px_10px_rgba(0,0,0,0.2)]">
+        <!-- Header -->
+        <div class="flex items-center l0tap una0h fwwwc c8zif dark:border-neutral-700">
+          <h3 class="kep9f q9f8h dark:text-neutral-200">
+            Create team
+          </h3>
+          <button type="button" class="items-center cedzs yhyas e7ph5 uawcp ix2dt tm0h0 pgsbd q951k q9f8h ygdgw focus:outline-none focus:bg-gray-200 lys57 hbt9x dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600" data-hs-overlay="#hs-pro-datm">
+            <span class="a3rr2">Close</span>
+            <svg class="we63v x04ut" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <!-- End Header -->
+
+        <!-- Body -->
+        <div class="uf9bc x35aa haqwf xv42z ghokw dark:[&amp;::-webkit-scrollbar-track]:bg-neutral-700 dark:[&amp;::-webkit-scrollbar-thumb]:bg-neutral-500">
+          <div class="zoatz q143p">
+            <div class="x5vlt">
+              <label for="hs-pro-dactmt" class="block yvy9j tvwcs c56ec q9f8h dark:text-neutral-200">
+                Title
+              </label>
+
+              <input id="hs-pro-dactmt" type="text" class="block w-full a5fil etaom sdjrs q8xeg tvwcs d5626 focus:border-blue-500 focus:ring-blue-500 lys57 hbt9x dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600" placeholder="Team title" value="" spellcheck="false" data-ms-editor="true">
+            </div>
+
+            <div class="x5vlt">
+              <label for="dactmi" class="block yvy9j tvwcs c56ec q9f8h dark:text-neutral-200">
+                Industry
+              </label>
+
+              <input id="dactmi" type="text" class="block w-full a5fil etaom sdjrs q8xeg tvwcs d5626 focus:border-blue-500 focus:ring-blue-500 lys57 hbt9x dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600" placeholder="Enter name" spellcheck="false" data-ms-editor="true">
+            </div>
+
+            <div class="x5vlt">
+              <label for="dactmd" class="block yvy9j tvwcs c56ec q9f8h dark:text-neutral-200">
+                Description
+              </label>
+
+              <textarea id="dactmd" class="block w-full a5fil etaom sdjrs q8xeg tvwcs d5626 focus:border-blue-500 focus:ring-blue-500 lys57 hbt9x dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600" rows="3" placeholder="Tell us a little bit about team" spellcheck="false" data-ms-editor="true"></textarea>
+            </div>
+
+            <div class="x5vlt">
+              <label for="dactmm" class="block yvy9j tvwcs c56ec q9f8h dark:text-neutral-200">
+                Members
+              </label>
+
+              <!-- Input Form -->
+              <div class="flex items-center kk6kf">
+                <input id="dactmm" type="text" class="block w-full a5fil etaom sdjrs q8xeg tvwcs d5626 focus:border-blue-500 focus:ring-blue-500 lys57 hbt9x dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600" placeholder="Enter name" spellcheck="false" data-ms-editor="true">
+
+                <button type="button" class="items-center a5fil etaom yhyas e7ph5 uawcp izb8f nf52k tm0h0 sdjrs q9f8h tvwcs c56ec q8xeg pgxei qgbbx y5r79 lys57 hbt9x focus:outline-none focus:bg-gray-50 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                  <svg class="we63v x04ut" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5v14"></path>
+                  </svg>
+                  Add
+                </button>
+              </div>
+              <!-- End Input Form -->
+            </div>
+
+            <div class="x5vlt">
+              <label class="block yvy9j tvwcs c56ec q9f8h dark:text-neutral-200">
+                Suggested members
+              </label>
+
+              <div class="flex items-center axsec">
+                <!-- User -->
+                <div class="hs-tooltip jsblq">
+                  <label for="hs-pro-dactcach1" class="relative block cursor-pointer ix2dt">
+                    <img class="hs-tooltip-toggle we63v aom3a ix2dt" src="https://images.unsplash.com/photo-1659482633369-9fe69af50bfb?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=2.5&amp;w=320&amp;h=320&amp;q=80" alt="Image Description">
+                    <span class="absolute block -top-1 -end-1 nf52k ix2dt dark:bg-neutral-800">
+                      <span class="relative flex items-center u385y e7ph5 ieehs ovwgq zlf2a mr9q4 b92rm ix2dt dark:bg-blue-500/40 dark:border-neutral-800 dark:text-blue-300">
+                        <input type="checkbox" id="hs-pro-dactcach1" class="absolute vhz8h wcgoj op6zh l9z51 pgsbd ix2dt focus:outline-none">
+                        <svg class="we63v ywuzz" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                          <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
+                        </svg>
+                      </span>
+                    </span>
+                  </label>
+                  <span class="absolute bg-gray-900 opacity-0 hs-tooltip-content qli0r qbgo3 jsblq ee122 ez8k7 op8b9 iutpq ld7xn hv4je q8xeg dark:bg-neutral-700" role="tooltip" data-popper-placement="top" style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(372px, -437px);">
+                    James Collins
+                  </span>
+                </div>
+                <!-- End User -->
+
+                <!-- User -->
+                <div class="hs-tooltip jsblq">
+                  <label for="hs-pro-dactcach2" class="relative block cursor-pointer ix2dt">
+                    <span class="flex items-center hs-tooltip-toggle we63v e7ph5 aom3a nf52k tm0h0 sdjrs iqz6u c56ec ncmy8 ix2dt dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-300">L</span><span class="absolute block -top-1 -end-1 nf52k ix2dt dark:bg-neutral-800">
+                      <span class="relative flex items-center u385y e7ph5 ieehs ovwgq zlf2a mr9q4 b92rm ix2dt dark:bg-blue-500/40 dark:border-neutral-800 dark:text-blue-300">
+                        <input type="checkbox" id="hs-pro-dactcach2" class="absolute vhz8h wcgoj op6zh l9z51 pgsbd ix2dt focus:outline-none">
+                        <svg class="we63v ywuzz" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                          <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
+                        </svg>
+                      </span>
+                    </span>
+                  </label>
+                  <span class="absolute bg-gray-900 opacity-0 hs-tooltip-content qli0r qbgo3 jsblq ee122 ez8k7 op8b9 iutpq ld7xn hv4je q8xeg dark:bg-neutral-700" role="tooltip" data-popper-placement="top" style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(433px, -437px);">
+                    Lori Hunter
+                  </span>
+                </div>
+                <!-- End User -->
+
+                <!-- User -->
+                <div class="hs-tooltip jsblq">
+                  <label for="hs-pro-dactcach3" class="relative block cursor-pointer ix2dt">
+                    <img class="hs-tooltip-toggle we63v aom3a ix2dt" src="https://images.unsplash.com/photo-1679412330254-90cb240038c5?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=2.5&amp;w=320&amp;h=320&amp;q=80" alt="Image Description">
+                    <span class="absolute block -top-1 -end-1 nf52k ix2dt dark:bg-neutral-800">
+                      <span class="relative flex items-center u385y e7ph5 ieehs ovwgq zlf2a mr9q4 b92rm ix2dt dark:bg-blue-500/40 dark:border-neutral-800 dark:text-blue-300">
+                        <input type="checkbox" id="hs-pro-dactcach3" class="absolute vhz8h wcgoj op6zh l9z51 pgsbd ix2dt focus:outline-none">
+                        <svg class="we63v ywuzz" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                          <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
+                        </svg>
+                      </span>
+                    </span>
+                  </label>
+                  <span class="absolute bg-gray-900 opacity-0 hs-tooltip-content qli0r qbgo3 jsblq ee122 ez8k7 op8b9 iutpq ld7xn hv4je q8xeg dark:bg-neutral-700" role="tooltip" data-popper-placement="top" style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(483px, -437px);">
+                    Lewis Clarke
+                  </span>
+                </div>
+                <!-- End User -->
+
+                <!-- User -->
+                <div class="hs-tooltip jsblq">
+                  <label for="hs-pro-dactcach4" class="relative block cursor-pointer ix2dt">
+                    <img class="hs-tooltip-toggle we63v aom3a ix2dt" src="https://images.unsplash.com/photo-1659482634023-2c4fda99ac0c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=2.5&amp;w=320&amp;h=320&amp;q=80" alt="Image Description">
+                    <span class="absolute block -top-1 -end-1 nf52k ix2dt dark:bg-neutral-800">
+                      <span class="relative flex items-center u385y e7ph5 ieehs ovwgq zlf2a mr9q4 b92rm ix2dt dark:bg-blue-500/40 dark:border-neutral-800 dark:text-blue-300">
+                        <input type="checkbox" id="hs-pro-dactcach4" class="absolute vhz8h wcgoj op6zh l9z51 pgsbd ix2dt focus:outline-none">
+                        <svg class="we63v ywuzz" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                          <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
+                        </svg>
+                      </span>
+                    </span>
+                  </label>
+                  <span class="absolute bg-gray-900 opacity-0 hs-tooltip-content qli0r qbgo3 jsblq ee122 ez8k7 op8b9 iutpq ld7xn hv4je q8xeg dark:bg-neutral-700" role="tooltip" data-popper-placement="top" style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(544px, -437px);">
+                    Ella Lauda
+                  </span>
+                </div>
+                <!-- End User -->
+
+                <!-- User -->
+                <div class="hs-tooltip jsblq">
+                  <label for="hs-pro-dactcach5" class="relative block cursor-pointer ix2dt">
+                    <span class="flex items-center hs-tooltip-toggle we63v e7ph5 aom3a nf52k tm0h0 sdjrs iqz6u c56ec ncmy8 ix2dt dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-300">O</span><span class="absolute block -top-1 -end-1 nf52k ix2dt dark:bg-neutral-800">
+                      <span class="relative flex items-center u385y e7ph5 ieehs ovwgq zlf2a mr9q4 b92rm ix2dt dark:bg-blue-500/40 dark:border-neutral-800 dark:text-blue-300">
+                        <input type="checkbox" id="hs-pro-dactcach5" class="absolute vhz8h wcgoj op6zh l9z51 pgsbd ix2dt focus:outline-none">
+                        <svg class="we63v ywuzz" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                          <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
+                        </svg>
+                      </span>
+                    </span>
+                  </label>
+                  <span class="absolute bg-gray-900 opacity-0 hs-tooltip-content qli0r qbgo3 jsblq ee122 ez8k7 op8b9 iutpq ld7xn hv4je q8xeg dark:bg-neutral-700" role="tooltip" data-popper-placement="top" style="position: fixed; inset: auto auto 0px 0px; margin: 0px; transform: translate(597px, -437px);">
+                    Ols Schols
+                  </span>
+                </div>
+                <!-- End User -->
+              </div>
+            </div>
+
+            <!-- Drag 'n Drop -->
+            <div class="x5vlt">
+              <label class="block yvy9j tvwcs c56ec q9f8h dark:text-neutral-200">
+                Cover
+              </label>
+              <div class="flex y5t57 e7ph5 nf52k tm0h0 goh53 rpucu jtemb dark:bg-neutral-800 dark:border-neutral-600">
+                <div class="gtg1a">
+                  <svg class="q61o9 esnlz i8bhn dark:text-neutral-400" width="70" height="46" viewBox="0 0 70 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.05172 9.36853L17.2131 7.5083V41.3608L12.3018 42.3947C9.01306 43.0871 5.79705 40.9434 5.17081 37.6414L1.14319 16.4049C0.515988 13.0978 2.73148 9.92191 6.05172 9.36853Z" fill="currentColor" stroke="currentColor" stroke-width="2" class="w7igh nvh8n dark:fill-neutral-800 dark:stroke-neutral-500"></path>
+                    <path d="M63.9483 9.36853L52.7869 7.5083V41.3608L57.6982 42.3947C60.9869 43.0871 64.203 40.9434 64.8292 37.6414L68.8568 16.4049C69.484 13.0978 67.2685 9.92191 63.9483 9.36853Z" fill="currentColor" stroke="currentColor" stroke-width="2" class="w7igh nvh8n dark:fill-neutral-800 dark:stroke-neutral-500"></path>
+                    <rect x="17.0656" y="1.62305" width="35.8689" height="42.7541" rx="5" fill="currentColor" stroke="currentColor" stroke-width="2" class="w7igh nvh8n dark:fill-neutral-800 dark:stroke-neutral-500"></rect>
+                    <path d="M47.9344 44.3772H22.0655C19.3041 44.3772 17.0656 42.1386 17.0656 39.3772L17.0656 35.9161L29.4724 22.7682L38.9825 33.7121C39.7832 34.6335 41.2154 34.629 42.0102 33.7025L47.2456 27.5996L52.9344 33.7209V39.3772C52.9344 42.1386 50.6958 44.3772 47.9344 44.3772Z" stroke="currentColor" stroke-width="2" class="nvh8n dark:stroke-neutral-500"></path>
+                    <circle cx="39.5902" cy="14.9672" r="4.16393" stroke="currentColor" stroke-width="2" class="nvh8n dark:stroke-neutral-500"></circle>
+                  </svg>
+
+                  <div class="flex flex-wrap cj8ey e7ph5 tvwcs esbq9 l0tn7">
+                    <span class="jnkup c56ec q9f8h dark:text-neutral-200">
+                      Drop your files here or
+                    </span>
+                    <label for="hs-pro-dactc" class="relative cursor-pointer nf52k kep9f b92rm pstb3 q8xeg yz9p7 k9flr kw03g zrxnb zmlgy g4whu dark:bg-neutral-800 dark:text-blue-500 dark:hover:text-blue-600">
+                      <span>browse</span>
+                      <input id="hs-pro-dactc" type="file" class="a3rr2">
+                    </label>
+                  </div>
+
+                  <p class="nuak0 ld7xn esnlz dark:text-neutral-400">
+                    CSV, XLS, DOCX
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Drag 'n Drop -->
+          </div>
+        </div>
+        <!-- End Body -->
+
+        <!-- Footer -->
+        <div class="flex zoatz fwwwc uawcp">
+          <div class="flex items-center w-full q0yhx uawcp">
+            <button type="button" class="items-center a5fil etaom yhyas e7ph5 izb8f nf52k tm0h0 sdjrs q9f8h tvwcs c56ec q8xeg pgxei qgbbx y5r79 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" data-hs-overlay="#hs-pro-datm">
+              Cancel
+            </button>
+
+            <button type="button" class="items-center a5fil etaom yhyas e7ph5 uawcp izb8f h48gv tm0h0 lcp65 hv4je tvwcs c56ec q8xeg pgxei qgbbx me9mu focus:outline-none focus:ring-1 focus:ring-blue-300 dark:focus:ring-blue-500" data-hs-overlay="#hs-pro-datm">
+              Create team
+            </button>
+          </div>
+        </div>
+        <!-- Footer -->
+      </div>
+  </div>
+
+  <!-- Modal Content -->
+        
+</body>
+<!-- End Content -->
+<!-- ========== END HEADER ========== -->
+<script src="/dist/assets/js/theme-switcher.js"></script>
+<script src="/node_modules/preline/dist/preline.js"></script>
+</body>
+
+</html>
